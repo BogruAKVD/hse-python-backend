@@ -1,10 +1,11 @@
 from fastapi import FastAPI, HTTPException, Query, Response, status
 from pydantic import PositiveInt, NonNegativeFloat, NonNegativeInt
 from typing import Iterable, Annotated, List
-from lecture_2.hw.shop_api.models import Item, ItemInCart, Cart
+from models import Item, ItemInCart, Cart
+from prometheus_fastapi_instrumentator import Instrumentator
 
 app = FastAPI(title="Shop API")
-
+Instrumentator().instrument(app).expose(app)
 
 def cart_id_generator() -> Iterable[int]:
     i = 0
