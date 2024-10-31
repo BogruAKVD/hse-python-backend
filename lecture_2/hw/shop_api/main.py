@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException, Query, Response, status
 from pydantic import PositiveInt, NonNegativeFloat, NonNegativeInt
 from typing import Iterable, Annotated, List
-from models import Item, ItemInCart, Cart
+from lecture_2.hw.shop_api.models import Item, ItemInCart, Cart
 from prometheus_fastapi_instrumentator import Instrumentator
 
 app = FastAPI(title="Shop API")
